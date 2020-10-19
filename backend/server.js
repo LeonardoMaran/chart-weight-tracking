@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const { reset } = require('nodemon');
+
 const cors = require('cors');
 
 
@@ -16,26 +16,14 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedT
   () => console.log('Connected to db!'))
 
 
+// Set up router
+const apiRoute = require('./routes/api');
+app.use('/api', apiRoute);
 
-const postsRoute = require('./routes/posts');
-
-app.use('/posts', postsRoute);
-
-// ROUTES
 app.get('/', (req, res) => {
   // res.sendFile(__dirname + '/public/index.html');
-  res.send('It has been connected!')
+  res.send('Connected')
 })
-
-
-
-app.get('/mochi',  (req, res) => {
-  const mochis =  db.collection('mochi').find().toArray();
-  res.json(mochis);
-})
-
-
-
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
