@@ -58,7 +58,7 @@ const Chart = (props) => {
 
     <div className='chart'>
 
-      <Line data={data} legend={legend} options={options} height={400}/>
+      <Line data={data} legend={legend} options={options} height={500}/>
     </div>
     </>
   );
