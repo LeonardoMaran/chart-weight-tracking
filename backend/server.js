@@ -12,8 +12,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, 
-  () => console.log('Connected to db!'))
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
 
 
 // Set up router
